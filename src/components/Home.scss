@@ -1,7 +1,10 @@
-.main {
+.home {
+  height: 100%;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
+  justify-content: stretch;
   align-items: center;
+  
 }

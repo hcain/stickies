@@ -1,16 +1,15 @@
 .App {
-  visibility: visible;
-  background-color: #000000;
-  color: #ffffff;
 }
 
 .navbar {
   grid-area: navbar;
 }
-.main {
-  margin: 0 10px;
-  grid-area: main;
+
+.content {
+  margin: 0 20px;
+  grid-area: content;
 }
+
 .footer {
   grid-area: footer;
 }
@@ -22,6 +21,6 @@
   grid-template-rows: 40px 1fr 30px;
   grid-template-areas: 
     "navbar"
-    "main"
+    "content"
     "footer";
 }

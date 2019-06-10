@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Main.scss";
+import "./Home.scss";
 
 import { fetchAllUsers } from "../actions/actions";
+import UserCard from "./UserCard";
 
-class Main extends Component {
+class Home extends Component {
   componentDidMount() {
     this.props.dispatch(fetchAllUsers());
     console.log(this.state);
@@ -23,9 +24,9 @@ class Main extends Component {
     }
 
     return (
-      <div className="main">
+      <div className="home">
         {users.map((user) => (
-          <div key={user.id}>{user.name}</div>
+          <UserCard {...user} />
         ))}
       </div>
     );
@@ -38,4 +39,4 @@ const mapStateToProps = (state) => ({
   error: state.allUsersReducer.error
 });
 
-export default connect(mapStateToProps)(Main);
+export default connect(mapStateToProps)(Home);

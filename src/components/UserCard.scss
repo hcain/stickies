@@ -1,0 +1,26 @@
+.user-card {
+position: relative;
+
+  p {
+    position:absolute;
+    width: calc(100% - 10px);
+    bottom: 0;
+    left:0;
+    margin: 0;
+    padding: 10px 0px 10px 10px;
+    background-color: rgba(	45, 45, 45, 0.9);
+    font-size:1.5em;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    min-width: 162px;
+    height: auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+}
+.user-card:hover {
+  cursor: pointer;
+  color: #c183ff;
+}
