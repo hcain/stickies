@@ -1,16 +1,49 @@
-import { FIRST_ACTION, SECOND_ACTION } from "../actions/actions";
+import { combineReducers } from "redux";
 
-export default (state = {}, action) => {
+import {
+  FETCH_ALL_USERS_BEGIN,
+  FETCH_ALL_USERS_SUCCESS,
+  FETCH_ALL_USERS_FAILURE
+} from "../actions/actions";
+
+const initialState = {
+  items: [],
+  loading: false,
+  error: null
+};
+
+function allUsersReducer(state = initialState, action) {
   switch (action.type) {
-    case FIRST_ACTION:
+    case FETCH_ALL_USERS_BEGIN:
       return {
-        result: action.payload
+        ...state,
+        loading: true,
+        error: null
       };
-    case SECOND_ACTION:
+
+    case FETCH_ALL_USERS_SUCCESS:
+      console.log(action.payload.users);
       return {
-        result: action.payload
+        ...state,
+        loading: false,
+        items: action.payload.users
       };
+
+    case FETCH_ALL_USERS_FAILURE:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload.error,
+        items: []
+      };
+
     default:
       return state;
   }
-};
+}
+
+const rootReducer = combineReducers({
+  allUsersReducer
+});
+
+export default rootReducer;

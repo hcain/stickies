@@ -1,18 +1,42 @@
-// Action Types
-export const FIRST_ACTION = "FIRST_ACTION";
-export const SECOND_ACTION = "SECOND_ACTION";
+// ACTION TYPES
+export const FETCH_ALL_USERS_BEGIN = "FETCH_ALL_USERS_BEGIN";
+export const FETCH_ALL_USERS_SUCCESS = "FETCH_ALL_USERS_SUCCESS";
+export const FETCH_ALL_USERS_FAILURE = "FETCH_ALL_USERS_FAILURE";
 
-// Action Creators
-export const firstAction = () => dispatch => {
-  dispatch({
-    type: FIRST_ACTION,
-    payload: "result_of_first_action"
-  });
-};
+// ACTION CREATORS
+export const fetchAllUsersBegin = () => ({
+  type: FETCH_ALL_USERS_BEGIN
+});
 
-export const secondAction = () => dispatch => {
-  dispatch({
-    type: SECOND_ACTION,
-    payload: "result_of_second_action"
-  });
-};
+export const fetchAllUsersSuccess = (users) => ({
+  type: FETCH_ALL_USERS_SUCCESS,
+  payload: { users }
+});
+
+export const fetchAllUsersFailure = (error) => ({
+  type: FETCH_ALL_USERS_FAILURE,
+  payload: { error }
+});
+
+// THUNKS
+export function fetchAllUsers() {
+  return (dispatch) => {
+    dispatch(fetchAllUsersBegin());
+    return fetch(`https://bh-interview.now.sh/users`)
+      .then(handleErrors)
+      .then((res) => res.json())
+      .then((response) => {
+        dispatch(fetchAllUsersSuccess(response.data));
+        return response.data;
+      })
+      .catch((error) => dispatch(fetchAllUsersFailure(error)));
+  };
+}
+
+// Handle HTTP errors since fetch won't.
+function handleErrors(response) {
+  if (!response.ok) {
+    throw Error(response.status /* statusText */);
+  }
+  return response;
+}
