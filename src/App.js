@@ -9,10 +9,11 @@ import {
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
+import Sticky404 from "./components/Sticky404";
 import Footer from "./components/Footer";
 
 import { fetchAllUsers } from "./actions/actions";
-import "./App.scss";
+import "./sass/_app.scss";
 
 class App extends Component {
   componentDidMount() {
@@ -20,7 +21,6 @@ class App extends Component {
   }
 
   render() {
-    // console.log("app render", this.props);
     return (
       <div className="App">
         <Router>
@@ -30,7 +30,7 @@ class App extends Component {
               <Switch>
                 <Route exact path="/" component={Home} />
                 <Route exact path="/users/:id" component={UserProfile} />
-                {/* <Route path="*" component={Page404} /> */}
+                <Route path="*" component={Sticky404} />
               </Switch>
             </div>
             <Footer />

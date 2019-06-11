@@ -61,7 +61,7 @@ function handleErrors(response) {
   console.log("handle", response);
 
   if (!response.ok) {
-    throw Error(response.status /* statusText */);
+    throw Error(response.status);
   }
   return response;
 }

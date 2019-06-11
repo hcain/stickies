@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Home.scss";
+import "../sass/_home.scss";
 
 import UserCard from "./UserCard";
 
@@ -14,13 +14,12 @@ class Home extends Component {
     }
 
     if (loading) {
-      console.log("where are you");
       return <div className="loading">Loading...</div>;
     }
 
     return (
       <div className="home">
-        {users && users.map((user) => <UserCard {...user} />)}
+        {users && users.map((user) => <UserCard key={user.id} {...user} />)}
       </div>
     );
   }

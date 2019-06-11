@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import "./UserCard.scss";
+import "../sass/_userCard.scss";
 
 export default class UserCard extends Component {
   render() {

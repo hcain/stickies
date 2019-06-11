@@ -1,4 +1,4 @@
-
+@import './_index';
 .home {
   height: 100%;
   display: grid;
@@ -7,4 +7,13 @@
   justify-items: center;
   justify-content: stretch;
   align-items: center;
+
+  @include mobile {
+    display: none;
+    display: block;
+  }
+}
+
+.loading{
+  text-align: center;
 }

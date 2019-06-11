@@ -1,0 +1,7 @@
+@import './_index';
+.no-post{
+  @include square;
+  @include sticky;
+  grid-column-start: 2;
+  grid-row-start: 1;
+}

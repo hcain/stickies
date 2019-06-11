@@ -1,16 +1,9 @@
+@import './_index';
 .user-card {
-  position: relative;
-&.aspectRatioSizer {
-  display: grid;
-}
-
-&.aspectRatioSizer > * {
-  grid-area: 1 / 1 / 2 / 2;
-}
+@include square;
 // remove link styling
 text-decoration: none;
 color: #FFFFFF;
-justify-self: stretch;
 
   p {
     position:absolute;

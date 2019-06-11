@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./UserPost.scss";
+import "../sass/_userPost.scss";
 
 export default class UserPost extends Component {
   cropText = (text, charLimit) => {
@@ -13,6 +13,7 @@ export default class UserPost extends Component {
     console.log(this.props);
     return (
       <div className="user-post aspectRatioSizer">
+        {/* svg maintains square https://codeburst.io/keeping-aspect-ratio-with-html-and-no-padding-tricks-40705656808b*/}
         <svg viewBox="0 0 1 1" />
         <div>
           <p>{this.cropText(this.props.content, 56)}</p>

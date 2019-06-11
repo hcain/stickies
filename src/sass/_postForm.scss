@@ -1,0 +1,37 @@
+@import './_index';
+.post-form{
+  @include square;
+  @include sticky;
+  grid-column-start: 1;
+  grid-row-start: 2;
+
+  .input-section{
+    text-align: center;
+    form{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-content: start;
+      overflow: hidden;
+      max-width: 100%;
+      * {
+        margin: 5px auto;
+        font-family: 'Permanent Marker', cursive;
+        font-size: 4.5vw;
+        background-color: $accent-color;
+        width: calc(100% - 40px);
+
+        @include mobile{
+          font-size: 12vw;
+        }
+      }
+      button {
+        width: calc(100% - 34px);
+      }
+
+
+    }
+
+  }
+
+}

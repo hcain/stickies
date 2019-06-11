@@ -1,3 +1,4 @@
+@import './_index';
 .user-profile {
   height: 100%;
   display: grid;
@@ -7,4 +8,13 @@
   align-items: start;
   grid-auto-flow: column;
   grid-auto-rows: 1fr;
+
+  @include mobile {
+    display: none;
+    display: block;
+  }
+}
+
+.loading{
+  text-align: center;
 }

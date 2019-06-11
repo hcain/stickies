@@ -1,0 +1,50 @@
+@import './_index';
+.navbar {
+  height: 40px;
+  width: 100%;
+  background-color: #000000;
+  display: grid;
+  justify-items: center;
+  align-items: end;
+  grid-template-columns: 200px 1fr 40px;
+  padding-bottom: 5px; 
+}
+
+.site-name {
+  color: $accent-color;
+  justify-self: left;
+  grid-column-start: 1;
+  margin: 0 10px;
+}
+
+.navbar-home {
+  grid-column-start: 3;
+
+ img {
+    height: 28px;
+    margin-bottom: 2px;
+    content:url("../icons/home-white.svg");
+    }
+
+  &.active img {
+      content:url("../icons/home-active.svg");
+  }
+}
+
+// would have liked to have added user menu in navbar
+// .navbar-user-menu {
+//   grid-column-start: 4;
+
+//   img {
+//     padding-bottom: 1px;
+//     height: 18px;
+//     content:url("../icons/user-white.svg");
+//   }
+
+  // &.active img {
+  //   content:url("../icons/user-active.svg");
+  // }
+// }
+
+
+

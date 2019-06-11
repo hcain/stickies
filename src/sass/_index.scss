@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  visibility: visible;
+  background-color: #2d2d2d;
+  color: #ffffff;
+
+  font-family: 'Permanent Marker', cursive;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+// variables
+$accent-color: #f9f577;
+$font-color: #000000;
+$mobile-width: 680px;
+
+@mixin mobile {
+  @media ( max-width: $mobile-width ) {
+    @content;
+  }
+}
+
+@mixin square {
+  position: relative;
+  // too maintain 1:1 aspect ratio
+  &.aspectRatioSizer {
+    display: grid;
+  }
+  &.aspectRatioSizer > * {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+    background-color: $accent-color;
+    justify-self: stretch;
+    align-self: stretch;
+    min-width: 162px;
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
+    @include mobile {
+margin: 10px 0;
+    }
+}
+
+@mixin sticky {
+  color: $font-color;
+  p{
+    margin: 2vw;
+    font-size: 4.4vw;
+    @include mobile {
+      font-size: 10vmin;
+          }
+    &.poster {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
