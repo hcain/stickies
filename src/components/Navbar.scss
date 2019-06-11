@@ -37,10 +37,19 @@
     content:url("../icons/user-white.svg");
   }
 
-  &.active img {
-    content:url("../icons/user-active.svg");
-  }
+  // &.active img {
+  //   content:url("../icons/user-active.svg");
+  // }
 }
 
+// .dropdown-content .navbar-user.active + .user-icon {
+//   content:url("../icons/user-active.svg");
+// }
+
+// if home icon is not active, make the user icon active
+// there are only two routes, so checking for the negative works in this case
+.navbar-home:not(.active) + .navbar-user-menu .user-icon {
+  content:url("../icons/user-active.svg");
+}
 
 

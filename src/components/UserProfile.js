@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import "./Home.scss";
-
+import "./UserProfile.scss";
 import UserCard from "./UserCard";
+import UserPost from "./UserPost";
 
-class Home extends Component {
+class UserProfile extends Component {
   render() {
     const { error, loading, users } = this.props;
-    console.log(users);
 
     if (error) {
       return <div>Error! {error.message}</div>;
@@ -16,11 +15,14 @@ class Home extends Component {
     if (loading) {
       return <div>Loading...</div>;
     }
-
+    const user = users[this.props.match.params.id - 1];
+    console.log(user);
+    const posts = user ? user.posts : [];
     return (
-      <div className="home">
-        {users.map((user) => (
-          <UserCard {...user} />
+      <div className="user-profile">
+        <UserCard {...user} />
+        {posts.map((post) => (
+          <UserPost {...post} />
         ))}
       </div>
     );
@@ -33,4 +35,4 @@ const mapStateToProps = (state) => ({
   error: state.allUsersReducer.error
 });
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(UserProfile);

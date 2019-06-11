@@ -1,14 +1,17 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import "./UserCard.scss";
 
 export default class UserCard extends Component {
   render() {
-    console.log(this.props);
     return (
-      <div className="user-card" key={this.props.id}>
+      <Link
+        key={this.props.id}
+        to={`/users/${this.props.id}`}
+        className="user-card">
         <p>{this.props.name}</p>
         <img src={this.props.image} />
-      </div>
+      </Link>
     );
   }
 }

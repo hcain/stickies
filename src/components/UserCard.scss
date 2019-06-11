@@ -1,6 +1,10 @@
 .user-card {
 position: relative;
 
+// remove link styling
+text-decoration: none;
+color: #FFFFFF;
+
   p {
     position:absolute;
     width: calc(100% - 10px);

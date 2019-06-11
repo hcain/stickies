@@ -1,0 +1,9 @@
+.user-profile {
+  height: 100%;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: start;
+  grid-auto-rows: 1fr;
+}

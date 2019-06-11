@@ -1,0 +1,21 @@
+.user-post {
+  background-color: #f9f577;
+  justify-self: stretch;
+  color: #000000;
+  max-width: 100%;
+  min-width: 162px;
+  height: 100%;
+  grid-column-start: 2;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  p{
+    font-family: 'Permanent Marker', cursive;
+    margin: 2vw;
+    font-size: 5vw;
+
+    &.poster {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+}
