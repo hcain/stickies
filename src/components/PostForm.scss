@@ -1,18 +1,21 @@
-.user-post {
+.post-form{
+
 &.aspectRatioSizer {
   display: grid;
 }
 &.aspectRatioSizer > * {
   grid-area: 1 / 1 / 2 / 2;
 }
+
   background-color: #f9f577;
   justify-self: stretch;
   align-self: stretch;
   color: #000000;
   // max-width: 100%;
   min-width: 162px;
-  // height: 100%;
-  grid-column-start: 2;
+  height: 100%;
+  grid-column-start: 1;
+  grid-row-start: 2;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
   p{
     font-family: 'Permanent Marker', cursive;
@@ -24,4 +27,5 @@
       margin: 0 auto;
     }
   }
+
 }

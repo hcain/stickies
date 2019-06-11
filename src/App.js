@@ -3,8 +3,8 @@ import { connect } from "react-redux";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Switch
+  // Redirect
 } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
@@ -17,10 +17,10 @@ import "./App.scss";
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(fetchAllUsers());
-    console.log(this.state);
   }
 
   render() {
+    // console.log("app render", this.props);
     return (
       <div className="App">
         <Router>
@@ -42,9 +42,9 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.allUsersReducer.items,
-  loading: state.allUsersReducer.loading,
-  error: state.allUsersReducer.error
+  users: state.items,
+  loading: state.loading,
+  error: state.message
 });
 
 export default connect(mapStateToProps)(App);

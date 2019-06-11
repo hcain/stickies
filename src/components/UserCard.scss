@@ -1,9 +1,16 @@
 .user-card {
-position: relative;
+  position: relative;
+&.aspectRatioSizer {
+  display: grid;
+}
 
+&.aspectRatioSizer > * {
+  grid-area: 1 / 1 / 2 / 2;
+}
 // remove link styling
 text-decoration: none;
 color: #FFFFFF;
+justify-self: stretch;
 
   p {
     position:absolute;
@@ -20,11 +27,11 @@ color: #FFFFFF;
     display: block;
     max-width: 100%;
     min-width: 162px;
-    height: auto;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    height: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
   }
 }
 .user-card:hover {
   cursor: pointer;
-  color: #c183ff;
+  color: #f9f577;
 }

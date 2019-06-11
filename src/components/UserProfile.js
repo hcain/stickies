@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import "./UserProfile.scss";
 import UserCard from "./UserCard";
 import UserPost from "./UserPost";
+import PostForm from "./PostForm";
 
 class UserProfile extends Component {
   render() {
@@ -16,13 +17,16 @@ class UserProfile extends Component {
       return <div>Loading...</div>;
     }
     const user = users[this.props.match.params.id - 1];
-    console.log(user);
+    // console.log(user);
     const posts = user ? user.posts : [];
+    // console.log("posts", posts);
+
     return (
       <div className="user-profile">
         <UserCard {...user} />
-        {posts.map((post) => (
-          <UserPost {...post} />
+        <PostForm {...user} />
+        {posts.map((post, index) => (
+          <UserPost key={index} {...post} />
         ))}
       </div>
     );
@@ -30,9 +34,9 @@ class UserProfile extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  users: state.allUsersReducer.items,
-  loading: state.allUsersReducer.loading,
-  error: state.allUsersReducer.error
+  users: state.items,
+  loading: state.loading,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(UserProfile);

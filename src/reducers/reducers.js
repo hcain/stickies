@@ -1,9 +1,7 @@
-import { combineReducers } from "redux";
-
 import {
-  FETCH_ALL_USERS_BEGIN,
   FETCH_ALL_USERS_SUCCESS,
-  FETCH_ALL_USERS_FAILURE
+  LOADING_TRUE,
+  ERROR_RECEIVED
 } from "../actions/actions";
 
 const initialState = {
@@ -12,15 +10,8 @@ const initialState = {
   error: null
 };
 
-function allUsersReducer(state = initialState, action) {
+export default function reducer(state = initialState, action) {
   switch (action.type) {
-    case FETCH_ALL_USERS_BEGIN:
-      return {
-        ...state,
-        loading: true,
-        error: null
-      };
-
     case FETCH_ALL_USERS_SUCCESS:
       console.log(action.payload.users);
       return {
@@ -29,21 +20,20 @@ function allUsersReducer(state = initialState, action) {
         items: action.payload.users
       };
 
-    case FETCH_ALL_USERS_FAILURE:
+    case LOADING_TRUE:
       return {
         ...state,
-        loading: false,
-        error: action.payload.error,
-        items: []
+        loading: true,
+        error: null
+      };
+
+    case ERROR_RECEIVED:
+      return {
+        ...state,
+        error: action.payload.error
       };
 
     default:
       return state;
   }
 }
-
-const rootReducer = combineReducers({
-  allUsersReducer
-});
-
-export default rootReducer;

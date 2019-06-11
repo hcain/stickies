@@ -7,30 +7,29 @@ import UserCard from "./UserCard";
 class Home extends Component {
   render() {
     const { error, loading, users } = this.props;
-    console.log(users);
+    console.log("home", loading);
 
     if (error) {
       return <div>Error! {error.message}</div>;
     }
 
     if (loading) {
-      return <div>Loading...</div>;
+      console.log("where are you");
+      return <div className="loading">Loading...</div>;
     }
 
     return (
       <div className="home">
-        {users.map((user) => (
-          <UserCard {...user} />
-        ))}
+        {users && users.map((user) => <UserCard {...user} />)}
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => ({
-  users: state.allUsersReducer.items,
-  loading: state.allUsersReducer.loading,
-  error: state.allUsersReducer.error
+  users: state.items,
+  loading: state.loading,
+  error: state.error
 });
 
 export default connect(mapStateToProps)(Home);

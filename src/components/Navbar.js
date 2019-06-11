@@ -4,16 +4,11 @@ import "./Navbar.scss";
 
 export default class Navbar extends Component {
   render() {
-    console.log("navbar", this.props);
+    // console.log("navbar", this.props);
     return (
       <div className="navbar">
         <h1 className="site-name">Stickies</h1>
-        <NavLink
-          exact
-          path
-          to="/"
-          activeClassName="active"
-          className="navbar-home">
+        <NavLink exact to="/" activeClassName="active" className="navbar-home">
           <img className="home-icon" />
         </NavLink>
         <div className="dropdown navbar-user-menu">

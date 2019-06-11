@@ -1,11 +1,11 @@
 // ACTION TYPES
-export const FETCH_ALL_USERS_BEGIN = "FETCH_ALL_USERS_BEGIN";
+export const LOADING_TRUE = "LOADING_TRUE";
 export const FETCH_ALL_USERS_SUCCESS = "FETCH_ALL_USERS_SUCCESS";
-export const FETCH_ALL_USERS_FAILURE = "FETCH_ALL_USERS_FAILURE";
+export const ERROR_RECEIVED = "ERROR_RECEIVED";
 
 // ACTION CREATORS
-export const fetchAllUsersBegin = () => ({
-  type: FETCH_ALL_USERS_BEGIN
+export const loadingTrue = () => ({
+  type: LOADING_TRUE
 });
 
 export const fetchAllUsersSuccess = (users) => ({
@@ -13,15 +13,15 @@ export const fetchAllUsersSuccess = (users) => ({
   payload: { users }
 });
 
-export const fetchAllUsersFailure = (error) => ({
-  type: FETCH_ALL_USERS_FAILURE,
+export const errorReceived = (error) => ({
+  type: ERROR_RECEIVED,
   payload: { error }
 });
 
 // THUNKS
 export function fetchAllUsers() {
   return (dispatch) => {
-    dispatch(fetchAllUsersBegin());
+    dispatch(loadingTrue());
     return fetch(`https://bh-interview.now.sh/users`)
       .then(handleErrors)
       .then((res) => res.json())
@@ -29,12 +29,37 @@ export function fetchAllUsers() {
         dispatch(fetchAllUsersSuccess(response.data));
         return response.data;
       })
-      .catch((error) => dispatch(fetchAllUsersFailure(error)));
+      .catch((error) => dispatch(errorReceived(error)));
   };
 }
 
+export function addSticky(sticky, id) {
+  return (dispatch) => {
+    dispatch(loadingTrue());
+    return fetch(`https://bh-interview.now.sh/users/${id}/posts`, {
+      method: "post",
+      headers: {
+        // "Content-Type": "application/x-www-form-urlencoded"
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(sticky)
+    })
+      .then(handleErrors)
+      .then((res) => res.json())
+      .then((response) => {
+        dispatch(fetchAllUsers());
+        console.log("response.data", response.data);
+        return response.data;
+      })
+      .catch((error) => dispatch(errorReceived(error)));
+  };
+}
+
+// HELPER FUNCTION
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {
+  console.log("handle", response);
+
   if (!response.ok) {
     throw Error(response.status /* statusText */);
   }
