@@ -1,4 +1,4 @@
-##Stickies!
+## Stickies!
 
 Post stickies on your friend's profile page!
 
