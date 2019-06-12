@@ -9,15 +9,13 @@
     text-align: center;
 
     form{
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-content: start;
-      overflow: hidden;
-      max-width: 100%;
+      
+      @include mobile {
+        margin: 6% 0;
+      }
 
       * {
-        margin: 5px auto;
+        margin: 1vw auto;
         font-family: 'Permanent Marker', cursive;
         font-size: 4.5vw;
         background-color: $accent-color;
@@ -25,6 +23,7 @@
 
         @include mobile{
           font-size: 8vw;
+          margin: 2.2vw auto;
         }
       }
 
