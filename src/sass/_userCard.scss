@@ -35,8 +35,15 @@ color: $secondary-font-color;
   }
 
   img {
-    max-width: 100%;
     min-width: 162px;
+ 
+    // needed to stretch user photos properly across mobile and browsers
+    max-width: 100%;
+    // min-height: 100%;
+    width: 100%;
+    height: 100%;
+
+
 
     @include mobile {
       // fixes mobile bug where img doesn-t stretch
