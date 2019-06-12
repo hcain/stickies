@@ -10,8 +10,10 @@ export default class UserCard extends Component {
         to={`/users/${this.props.id}`}
         className="user-card aspectRatioSizer">
         <svg viewBox="0 0 1 1" />
-        <p>{this.props.name}</p>
-        <img src={this.props.image} />
+        <div>
+          <p>{this.props.name}</p>
+          <img src={this.props.image} />
+        </div>
       </Link>
     );
   }
