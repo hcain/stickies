@@ -31,14 +31,14 @@ class PostForm extends Component {
               type="text"
               className="message"
               ref={(input) => (this.content = input)}
-              placeholder="message"
+              placeholder=" message"
             />
 
             <input
               type="text"
               className="poster"
               ref={(input) => (this.poster = input)}
-              placeholder="name"
+              placeholder=" name"
             />
             <button>Post</button>
           </form>

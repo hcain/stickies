@@ -13,10 +13,10 @@ color: #FFFFFF;
     margin: 0;
     padding: 10px 0px 10px 10px;
     background-color: rgba(	45, 45, 45, 0.9);
-    font-size: 2.5vw;;
+    font-size: 2.5vw;
 
     @include mobile {
-      font-size:9vw;
+      font-size: 9vw;
     }
   }
 

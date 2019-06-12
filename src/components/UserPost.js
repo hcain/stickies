@@ -10,7 +10,6 @@ export default class UserPost extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div className="user-post aspectRatioSizer">
         {/* svg maintains square https://codeburst.io/keeping-aspect-ratio-with-html-and-no-padding-tricks-40705656808b*/}

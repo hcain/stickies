@@ -8,7 +8,8 @@ export default class Navbar extends Component {
       <div className="navbar">
         <h1 className="site-name">Stickies</h1>
         <NavLink exact to="/" activeClassName="active" className="navbar-home">
-          <img className="home-icon" />
+          {/* needs to be span instead of img because of firefox bug */}
+          <span className="home-icon" />
         </NavLink>
         {/* Would have liked to have added dropdown menu with all users link */}
         {/* <div className="dropdown navbar-user-menu">

@@ -48,7 +48,6 @@ export function addSticky(sticky, id) {
       .then((res) => res.json())
       .then((response) => {
         dispatch(fetchAllUsers());
-        console.log("response.data", response.data);
         return response.data;
       })
       .catch((error) => dispatch(errorReceived(error)));
@@ -58,8 +57,6 @@ export function addSticky(sticky, id) {
 // HELPER FUNCTION
 // Handle HTTP errors since fetch won't.
 function handleErrors(response) {
-  console.log("handle", response);
-
   if (!response.ok) {
     throw Error(response.status);
   }

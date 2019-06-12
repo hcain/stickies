@@ -7,7 +7,6 @@ import UserCard from "./UserCard";
 class Home extends Component {
   render() {
     const { error, loading, users } = this.props;
-    console.log("home", loading);
 
     if (error) {
       return <div>Error! {error.message}</div>;

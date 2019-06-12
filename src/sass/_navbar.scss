@@ -20,14 +20,15 @@
 .navbar-home {
   grid-column-start: 3;
 
- img {
+ span {
     height: 28px;
+    width: 28px;
     margin-bottom: 2px;
-    content:url("../icons/home-white.svg");
+    content: url("../icons/home-white.svg");
     }
 
-  &.active img {
-      content:url("../icons/home-active.svg");
+  &.active span {
+      content: url("../icons/home-active.svg");
   }
 }
 
