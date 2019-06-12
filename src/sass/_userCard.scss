@@ -4,7 +4,7 @@
 @include box-shadow;
 // remove link styling
 text-decoration: none;
-color: #FFFFFF;
+color: $secondary-font-color;
 
 @include mobile {
   overflow: hidden;
@@ -47,4 +47,9 @@ color: #FFFFFF;
 .user-card:hover {
   cursor: pointer;
   color: $accent-color;
+
+  @include mobile {
+    // remove hover color 
+    color: inherit;
+  }
 }

@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "../sass/_navbar.scss";
 
 export default class Navbar extends Component {
   render() {
     return (
       <div className="navbar">
-        <h1 className="site-name">Stickies</h1>
+        <Link to="/" className="site-name">
+          <h1>Stickies</h1>
+        </Link>
         <NavLink exact to="/" activeClassName="active" className="navbar-home">
           {/* needs to be span instead of img because of firefox bug */}
           <span className="home-icon" />

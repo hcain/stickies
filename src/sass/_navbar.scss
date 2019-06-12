@@ -2,19 +2,22 @@
 .navbar {
   height: 40px;
   width: 100%;
-  background-color: #000000;
+  background-color: $navbar-footer-color;
   display: grid;
   justify-items: center;
   align-items: end;
   grid-template-columns: 200px 1fr 40px;
-  padding-bottom: 5px; 
 }
 
 .site-name {
-  color: $accent-color;
-  justify-self: left;
   grid-column-start: 1;
+  justify-self: left;
   margin: 0 10px;
+
+  text-decoration: none;
+  color: $accent-color;
+  line-height: 0;
+
 }
 
 .navbar-home {
@@ -23,7 +26,6 @@
  span {
     height: 28px;
     width: 28px;
-    margin-bottom: 2px;
     content: url("../icons/home-white.svg");
     }
 
