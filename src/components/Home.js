@@ -13,7 +13,7 @@ class Home extends Component {
     }
 
     if (loading) {
-      return <div className="loading">Loading...</div>;
+      return <div className="loading">loading</div>;
     }
 
     return (

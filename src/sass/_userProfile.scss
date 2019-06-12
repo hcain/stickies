@@ -16,5 +16,6 @@
 }
 
 .loading{
-  text-align: center;
+  // text-align: center;
+  @include loading;
 }

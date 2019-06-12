@@ -16,7 +16,7 @@ class UserProfile extends Component {
     }
 
     if (loading) {
-      return <div className="loading">Loading...</div>;
+      return <div className="loading">loading</div>;
     }
     // get user index from url
     const user = users[this.props.match.params.id - 1];
