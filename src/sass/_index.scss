@@ -19,6 +19,10 @@ $mobile-width: 680px;
   }
 }
 
+@mixin box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
+}
+
 @mixin square {
   position: relative;
   // too maintain 1:1 aspect ratio
@@ -28,15 +32,17 @@ $mobile-width: 680px;
   &.aspectRatioSizer > * {
     grid-area: 1 / 1 / 2 / 2;
   }
-    background-color: $accent-color;
-    justify-self: stretch;
-    align-self: stretch;
-    min-width: 162px;
-    height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
-    @include mobile {
-margin: 10px 0;
-    }
+
+  @include box-shadow;
+  background-color: $accent-color;
+  justify-self: stretch;
+  align-self: stretch;
+  min-width: 162px;
+  height: 100%;
+  
+  @include mobile {
+    margin: 15px 0;
+  }
 }
 
 @mixin sticky {
@@ -46,7 +52,7 @@ margin: 10px 0;
     font-size: 4.4vw;
     @include mobile {
       font-size: 10vmin;
-          }
+  }
     &.poster {
       width: 80%;
       margin: 0 auto;

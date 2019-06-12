@@ -16,7 +16,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test"
+    "test": "react-scripts test",
+    "now-dev": "react-scripts start",
+    "now-build": "react-scripts build"
+    
   },
   "eslintConfig": {
     "extends": "react-app"

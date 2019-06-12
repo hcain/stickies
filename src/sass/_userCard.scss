@@ -13,18 +13,22 @@ color: #FFFFFF;
     margin: 0;
     padding: 10px 0px 10px 10px;
     background-color: rgba(	45, 45, 45, 0.9);
-    font-size:1.5em;
+    font-size: 2.5vw;;
+
+    @include mobile {
+      font-size:9vw;
+    }
   }
 
   img {
+    @include box-shadow;
     display: block;
     max-width: 100%;
     min-width: 162px;
     height: 100%;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
   }
 }
 .user-card:hover {
   cursor: pointer;
-  color: #f9f577;
+  color: $accent-color;
 }
