@@ -1,11 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch
-  // Redirect
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import UserProfile from "./components/UserProfile";
@@ -27,11 +23,13 @@ class App extends Component {
           <div className="wrapper">
             <Navbar />
             <div className="content">
-              <Switch>
-                <Route exact path="/" component={Home} />
-                <Route exact path="/users/:id" component={UserProfile} />
-                <Route path="*" component={Sticky404} />
-              </Switch>
+              <ScrollToTop>
+                <Switch>
+                  <Route exact path="/" component={Home} />
+                  <Route exact path="/users/:id" component={UserProfile} />
+                  <Route path="*" component={Sticky404} />
+                </Switch>
+              </ScrollToTop>
             </div>
             <Footer />
           </div>
