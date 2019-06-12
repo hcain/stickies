@@ -1,21 +1,25 @@
 // variables
+// colors
 $accent-color: #f9f577;
 $font-color: #000000;
 $secondary-font-color: #ffffff;
-$mobile-width: 680px;
 $bg-color: #2d2d2d;
 $navbar-footer-color: #000000;
+// mobile break point
+$mobile-width: 680px;
 
 body {
   margin: 0;
   visibility: visible;
   background-color: $bg-color;
+  //  fixes bug on usercard on mobile 
+  color: $secondary-font-color;
 
   font-family: 'Permanent Marker', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+// mixins
 @mixin mobile {
   @media ( max-width: $mobile-width ) {
     @content;
