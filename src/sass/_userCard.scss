@@ -1,7 +1,9 @@
 @import './_index';
+
 .user-card {
 @include square;
 @include box-shadow;
+
 // remove link styling
 text-decoration: none;
 color: $secondary-font-color;
@@ -39,11 +41,8 @@ color: $secondary-font-color;
  
     // needed to stretch user photos properly across mobile and browsers
     max-width: 100%;
-    // min-height: 100%;
     width: 100%;
     height: 100%;
-
-
 
     @include mobile {
       // fixes mobile bug where img doesn-t stretch

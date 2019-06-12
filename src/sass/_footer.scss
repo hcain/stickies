@@ -1,13 +1,22 @@
 @import './_index';
 .footer {
-  height: 30px;
+  min-height: 30px;
+  height: 100%;
   width: 100%;
   background-color: $navbar-footer-color;
-  vertical-align: bottom;
-  align-items: end;
-  position:relative;
+  text-align: right;
   p {
-    position:absolute; bottom:5px;
-    margin: 0 10px;
+    // "extends" the footer, when p wraps
+    background-color: $navbar-footer-color;
+
+    margin: 3px 0;
+    padding: 0 10px;
+    @include mobile {
+      text-align: left;
+    }
+  }
+  a {
+    text-decoration: underline;
+    color: $secondary-font-color;
   }
 }

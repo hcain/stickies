@@ -9,7 +9,6 @@
     text-align: center;
 
     form{
-      
       @include mobile {
         margin: 6% 0;
       }
@@ -24,6 +23,9 @@
         @include mobile{
           font-size: 8vw;
           margin: 2.2vw auto;
+
+          // fixes mobile overflow bug
+          width: 80%;
         }
       }
 
@@ -32,8 +34,13 @@
         width: calc(100% - 34px);
         border-width: 2px;
         border-color: #ffffff #2d2d2d #2d2d2d #ffffff ;
-      }
 
+        @include mobile{
+          // matches width of inputs
+          // on my phone but not browswer imitating phone
+          width: 89%;
+        }
+      }
 
     }
 
