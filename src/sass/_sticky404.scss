@@ -1,15 +1,5 @@
 @import './_index';
+
 .sticky404 {
-  @include sticky;
-  background-color: $accent-color;
-  min-width: 162px;
-  height: 30vw;
-  width: 30vw;
-  @include box-shadow;
-  margin: 0 auto;
-      @include mobile {
-        height: 80vmin;
-        width: 80vmin;
-        min-width: 162px;
-    }
+  @include centered-sticky;
 }

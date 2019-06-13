@@ -19,7 +19,6 @@
     "test": "react-scripts test",
     "now-dev": "react-scripts start",
     "now-build": "react-scripts build"
-    
   },
   "eslintConfig": {
     "extends": "react-app"

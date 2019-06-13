@@ -20,37 +20,50 @@ export const errorReceived = (error) => ({
 
 // THUNKS
 export function fetchAllUsers() {
-  return (dispatch) => {
+  return async (dispatch) => {
+    // play loading animation
     dispatch(loadingTrue());
-    return fetch(`https://bh-interview.now.sh/users`)
-      .then(handleErrors)
-      .then((res) => res.json())
-      .then((response) => {
-        dispatch(fetchAllUsersSuccess(response.data));
-        return response.data;
-      })
-      .catch((error) => dispatch(errorReceived(error)));
+    try {
+      const response = await fetch(`https://bh-interview.now.sh/users`);
+      // catch errors not caught by fetch
+      handleErrors(response);
+
+      const users = await response.json();
+      // add users to state
+      dispatch(fetchAllUsersSuccess(users.data));
+      return users.data;
+    } catch (error) {
+      // show error
+      dispatch(errorReceived(error));
+    }
   };
 }
 
 export function addSticky(sticky, id) {
-  return (dispatch) => {
+  return async (dispatch) => {
+    // play loading animation
     dispatch(loadingTrue());
-    return fetch(`https://bh-interview.now.sh/users/${id}/posts`, {
-      method: "post",
-      headers: {
-        // "Content-Type": "application/x-www-form-urlencoded"
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(sticky)
-    })
-      .then(handleErrors)
-      .then((res) => res.json())
-      .then((response) => {
-        dispatch(fetchAllUsers());
-        return response.data;
-      })
-      .catch((error) => dispatch(errorReceived(error)));
+    try {
+      const response = await fetch(
+        `https://bh-interview.now.sh/users/${id}/posts`,
+        {
+          method: "post",
+          headers: {
+            // "Content-Type": "application/x-www-form-urlencoded"
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify(sticky)
+        }
+      );
+      handleErrors(response);
+
+      const user = await response.json();
+      // update state to include new post
+      dispatch(fetchAllUsers());
+      return user.data;
+    } catch (error) {
+      dispatch(errorReceived(error));
+    }
   };
 }
 

@@ -12,7 +12,12 @@ class UserProfile extends Component {
     const { error, loading, users } = this.props;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return (
+        <div className="error">
+          <p> Oops! {error.message}</p>
+          <p>Go back the way you came!</p>
+        </div>
+      );
     }
 
     if (loading) {
@@ -26,19 +31,19 @@ class UserProfile extends Component {
       <div>
         {user ? (
           <div className="user-profile">
-            {/* IF USER EXISTS DISPLAY USER COMPONENTS */}
+            {/* IF USER EXISTS, DISPLAY USER'S COMPONENTS */}
             <UserCard {...user} />
             <PostForm {...user} />
             {posts.length ? (
-              // IF USER HAS POST DISPLAY POSTS
+              // IF USER HAS POSTS, DISPLAY POSTS
               posts.map((post, index) => <UserPost key={index} {...post} />)
             ) : (
-              // IF USER DOES NOT HAVE POSTS DISPLAY NOPOST COMPONENT
+              // IF USER DOES NOT HAVE POSTS, DISPLAY NOPOST COMPONENT
               <NoPost {...user} />
             )}
           </div>
         ) : (
-          // IF USER DOES NOT EXIST DISPLAY 404
+          // IF USER DOES NOT EXIST, DISPLAY 404
           <Sticky404 />
         )}
       </div>

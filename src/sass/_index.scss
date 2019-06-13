@@ -19,6 +19,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 // mixins
 @mixin mobile {
   @media ( max-width: $mobile-width ) {
@@ -30,6 +31,7 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.23);
 }
 
+// styling for responsive squares in css grid
 @mixin square {
   position: relative;
   // too maintain 1:1 aspect ratio
@@ -40,6 +42,7 @@ body {
     grid-area: 1 / 1 / 2 / 2;
   }
 
+  // sizing
   @include box-shadow;
   background-color: $accent-color;
   justify-self: stretch;
@@ -52,8 +55,11 @@ body {
   }
 }
 
+// internal styling for stickys
 @mixin sticky {
+  @include box-shadow;
   color: $font-color;
+
   p{
     margin: 2vw;
     font-size: 4.4vw;
@@ -67,7 +73,29 @@ body {
   }
 }
 
-@mixin loading {
+// for pages with a single sticky
+@mixin centered-sticky {
+  @include sticky;
+  background-color: $accent-color;
+  min-width: 162px;
+  height: 30vw;
+  width: 30vw;
+  margin: 0 auto;
+
+      @include mobile {
+        height: 80vmin;
+        width: 80vmin;
+        min-width: 162px;
+    }
+}
+
+// error sticky
+.error {
+  @include centered-sticky;
+}
+
+// loading animation
+.loading {
   // position sticky in center of page
   position:absolute;
   left:calc(50% - 100px);

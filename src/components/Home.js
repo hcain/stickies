@@ -9,7 +9,12 @@ class Home extends Component {
     const { error, loading, users } = this.props;
 
     if (error) {
-      return <div>Error! {error.message}</div>;
+      return (
+        <div className="error">
+          <p> Oops! {error.message}!</p>
+          <p>Go back the way you came!</p>
+        </div>
+      );
     }
 
     if (loading) {
