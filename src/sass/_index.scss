@@ -92,6 +92,9 @@ body {
 // error sticky
 .error {
   @include centered-sticky;
+  height: 35vw;
+  width: 35vw;
+  font-size: 6vmin;
 }
 
 // loading animation
